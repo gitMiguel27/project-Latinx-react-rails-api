@@ -1,0 +1,18 @@
+.navbar-container {
+    background-color: white;
+    border-radius: .5rem;
+}
+
+.navbar-links > * {
+    background-color: grey;
+    color: black !important;
+    text-decoration: none;
+    display:  inline-block;
+    margin: 0;
+    padding: 1em;
+}
+
+.navlink {
+    color: black !important;
+    text-decoration: none;
+}
