@@ -6,9 +6,8 @@ function Navbar(){
         <nav className="navbar">
             <div className= "navlinksContainer">
                 <NavLink exact to="/">Home</NavLink>
-                <NavLink to="/artist">Artist</NavLink>
-                <NavLink to="/sneakers">Sneakers</NavLink>
-                <NavLink to="/bottoms">Bottoms</NavLink>
+                <NavLink to="/artistpage">Artist Page</NavLink>
+                <NavLink to="/feed">Feed</NavLink>
             </div>
         </nav>
     )

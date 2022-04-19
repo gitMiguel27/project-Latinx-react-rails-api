@@ -2,42 +2,21 @@ import React from 'react';
 import './ArtistPage.css';
 
 function ArtistPage() {
-    
-    // var request = require('superagent');
 
-    // var clientID = '5144b758b4e10b59a66e',
-    //     clientSecret = '7d19dae2da1b5ec2bf6f4e53f0b876c5',
-    //     apiUrl = 'https://api.artsy.net/api/tokens/xapp_token',
-    //     xappToken;
-    
-    // request
-    //   .post(apiUrl)
-    //   .send({ client_id: clientID, client_secret: clientSecret })
-    //   .end(function(res) {
-    //     xappToken = res.body.token; 
-    //   });
-    
-    //   var traverson = require('traverson'),
-    //   JsonHalAdapter = require('traverson-hal');
-    
-    // traverson.registerMediaType(JsonHalAdapter.mediaType, JsonHalAdapter);
-    // api = traverson.from('https://api.artsy.net/api').jsonHal();
-    
-    // api.newRequest()
-    // .follow('artist')
-    // .withRequestOptions({
-    //   headers: {
-    //     'X-Xapp-Token': xappToken,
-    //     'Accept': 'application/vnd.artsy-v2+json'
-    //   }
-    // }) 
+    // useEffect(() => {
+    //     fetch("https://api.artsy.net/api/artworks/516dfb9ab31e2b2270000c45", {
+    //         method: "GET",
+    //         headers: {
+    //             "X-XAPP-Token": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6IiIsInN1YmplY3RfYXBwbGljYXRpb24iOiI2MjU5OGEwYzA3YzZmYjAwMGU1MmZkMDciLCJleHAiOjE2NTA5ODQ5NjcsImlhdCI6MTY1MDM4MDE2NywiYXVkIjoiNjI1OThhMGMwN2M2ZmIwMDBlNTJmZDA3IiwiaXNzIjoiR3Jhdml0eSIsImp0aSI6IjYyNWVjZDg3MmRiMDZiMDAwYzljYTUxMCJ9.r7Eo6H6Me-fogcfd09ZRZ4sXqIrlZ35W0IBGmVKspuc",
+    //             "Content-Type": "application/json"
+    //         },
+    //     })
+    //     .then(resp => resp.json())
+    //     .then(artworksData => {
+    //         console.log(artworksData)
+    //     })
+    // }, [])
 
-    // .withTemplateParameters({ id: 'andy-warhol' })
-    // .getResource(function(error, andyWarhol) {
-    //   console.log(andyWarhol.name + 'was born in ' + andyWarhol.birthday + ' in ' + andyWarhol.hometown);
-    // });
-
-    
     return(
         <div>
             Hello from ArtistPage
