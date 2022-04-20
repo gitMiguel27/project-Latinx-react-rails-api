@@ -35,18 +35,18 @@ ActiveRecord::Schema.define(version: 2022_04_18_155317) do
     t.string "category"
     t.integer "date"
     t.string "current_lcation"
-    t.bigint "country_id", null: false
     t.bigint "artist_id", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["artist_id"], name: "index_artworks_on_artist_id"
-    t.index ["country_id"], name: "index_artworks_on_country_id"
     t.index ["user_id"], name: "index_artworks_on_user_id"
   end
 
   create_table "countries", force: :cascade do |t|
     t.string "name"
+    t.string "image"
+    t.string "sprite"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -65,7 +65,6 @@ ActiveRecord::Schema.define(version: 2022_04_18_155317) do
 
   add_foreign_key "artists", "countries"
   add_foreign_key "artworks", "artists"
-  add_foreign_key "artworks", "countries"
   add_foreign_key "artworks", "users"
   add_foreign_key "users", "countries"
 end

@@ -6,9 +6,11 @@ function Navbar(){
     return(
         <nav className="navbar">
             <div className= "navbar-container">
+                <img src="l.png" alt="logo" className="logo"></img>
                 <div className= "navbar-links">
                 <NavLink to="/home">Home</NavLink>
-                <NavLink to="/feed">Feed</NavLink>
+                <NavLink to="/artists">Artists</NavLink>
+                <NavLink to="/explore">Explore</NavLink>
                 <NavLink to="/login">Login</NavLink>
                 </div>
             </div>

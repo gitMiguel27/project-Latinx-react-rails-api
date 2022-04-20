@@ -1,8 +1,16 @@
-import React from 'react'
-// import './FeedCard.css'
-// import './FeedCard.js';
+import React, { useEffect, useState } from 'react'
 
 function Feed() {
+
+    const [users, SetUsers] = useState([]);
+
+    useEffect(() => {
+        fetch('/users')
+        .then(resp => resp.json())
+        .then(usersData => {
+            console.log(usersData)
+        })
+    }, [])
 
     return(
         <div>

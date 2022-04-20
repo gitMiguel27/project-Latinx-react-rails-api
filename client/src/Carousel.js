@@ -1,26 +1,47 @@
 import React from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { Swiper, SwiperSlide } from '../node_modules/swiper/react/swiper-react';
+// import required modules
+import { Autoplay, Pagination, Navigation } from "swiper";
+// Import Swiper styles
+import 'swiper/swiper-bundle.css'
+import "swiper/swiper.min.css";
+// import "swiper/css/pagination";  
+// import "swiper/css/navigation";
 
 // Import Swiper styles
-import 'swiper/css';
+import './swipercarousel.css';
 
-function Carousel() {
- 
+function Carousel( {countries} ) {
+
+
+  const countriesImages = countries.map( country => {
+    return (
+      <SwiperSlide><img src={country.image} alt={country.name}></img></SwiperSlide>
+    )
+  })
+
   return (
-    <Swiper
-      spaceBetween={50}
-      slidesPerView={3}
-      onSlideChange={() => console.log('slide change')}
-      onSwiper={(swiper) => console.log(swiper)}
-    >
-      <SwiperSlide>Slide 1</SwiperSlide>
-      <SwiperSlide>Slide 2</SwiperSlide>
-      <SwiperSlide>Slide 3</SwiperSlide>
-      <SwiperSlide>Slide 4</SwiperSlide>
-      ...
-    </Swiper>
-  );
+    <>
+      <Swiper
+        spaceBetween={30}
+        centeredSlides={true}
+        autoplay={{
+          delay: 2500,
+          disableOnInteraction: false,
+        }}
+        pagination={{
+          clickable: true,
+        }}
+        navigation={true}
+        modules={[Autoplay, Pagination, Navigation]}
+        className="mySwiper"
+      >
+        {countriesImages}
+      </Swiper>
+    </>
+  
+)}
 
-}
+
 
 export default Carousel

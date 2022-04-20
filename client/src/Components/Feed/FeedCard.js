@@ -3,8 +3,7 @@ import React from 'react';
 
 function FeedCard () {
 
-    return 
-    (
+    return (
         <div>
             Hello
         </div>

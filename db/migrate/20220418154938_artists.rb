@@ -2,6 +2,7 @@ class Artists < ActiveRecord::Migration[6.1]
   def change
     create_table :artists do |t|
       t.string :name
+      t.string :pic
       t.string :hometown
       t.string :nationality
       t.integer :birth

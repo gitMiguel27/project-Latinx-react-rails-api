@@ -1,15 +1,15 @@
-import {React} from 'react';
+import React from 'react';
 import './App.css';
-import { BrowserRouter, Route, Switch } from 'react-router-dom'
-import Home from '../Home'
-import Navbar from '../Navbar'
-import ArtistPage from '../ArtistPage/ArtistPage';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import Home from '../Home/Home';
+import Feed from '../Feed/Feed';
+import Login from '../Login/Login'
+import JustArtists from '../JustArtists/JustArtists';
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
-      <Navbar />
         <Switch>
             <Route path="/">
               <Home />
@@ -17,8 +17,14 @@ function App() {
             <Route exact path="/home">
               <Home />
             </Route>
-            <Route exact path="/artist">
-              <ArtistPage />
+            <Route path="/artists">
+              <JustArtists />
+            </Route>
+            <Route path="/explore">
+              <Feed />
+            </Route>
+            <Route path="/login">
+              <Login />
             </Route>
         </Switch>
       </BrowserRouter>
