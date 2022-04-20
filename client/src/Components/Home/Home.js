@@ -19,8 +19,8 @@ function Home () {
     return (
         <div>
             <Navbar />
-            <h1>Home</h1>
-            <Carousel countries={countries} key={countries.id}/>
+            {/* <h1>Home</h1> */}
+            <Carousel countries={countries}/>
         </div>
     )
 }

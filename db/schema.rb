@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 2022_04_18_155317) do
 
   create_table "artists", force: :cascade do |t|
     t.string "name"
+    t.string "pic"
     t.string "hometown"
     t.string "nationality"
     t.integer "birth"

@@ -1,8 +1,8 @@
 puts '🌱 Seeding Countries...'
 
 peru = Country.create(name: 'Peru', image: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Flag_of_Peru_%28state%29.svg/2560px-Flag_of_Peru_%28state%29.svg.png" )
-mexico = Country.create(name: 'Mexican', image: "https://wallpapercave.com/wp/wp2738184.jpg" )
-colombia = Country.create(name: 'Colombia', image: "http://en.wikipedia.org/wiki/Special:FilePath/Flag_of_Colombia.svg" )
+mexico = Country.create(name: 'Mexico', image: "https://upload.wikimedia.org/wikipedia/en/thumb/2/22/Flag_of_the_United_Mexican_States_%281916-1934%29.svg/2560px-Flag_of_the_United_Mexican_States_%281916-1934%29.svg.png" )
+colombia = Country.create(name: 'Colombia', image: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Flag_of_Colombia.svg/1200px-Flag_of_Colombia.svg.png?20211103204713" )
 brazil = Country.create(name: 'Brazil', image: "https://images.wallpaperscraft.com/image/single/flag_brazil_symbolism_90565_2560x1024.jpg")
 # dominican = Country.create(name: 'Dominican Republic')
 

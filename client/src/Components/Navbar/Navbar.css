@@ -2,14 +2,17 @@
     background-color: #edeaea;
     border-radius: .5rem;
 }
-
+.navbar {
+    background-color: #edeaea;
+}
 .navbar-links > * {
     background-color: #edeaea;
     color: black !important;
     text-decoration: none;
-    display:  inline-block;
+    /* display: inline-block; */
     margin: 0;
     padding: 1em;
+    float: right;
 }
 
 .navlink {
@@ -19,5 +22,6 @@
 
 .logo {
     height: 10%;
-    width: 10%
+    width: 10%;
+    background-color: #edeaea;
 }

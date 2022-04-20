@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import FeedCard from './FeedCard'
 
 function Feed() {
 
@@ -9,12 +10,17 @@ function Feed() {
         .then(resp => resp.json())
         .then(usersData => {
             console.log(usersData)
+            SetUsers(usersData);
         })
     }, [])
 
+    const usersFeed = users.map((user) => {
+        return <FeedCard user={user}/> 
+    })
+
     return(
         <div>
-            From Feed Home
+            {usersFeed}
         </div>
     )
 

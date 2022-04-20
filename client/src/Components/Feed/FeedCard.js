@@ -1,11 +1,14 @@
 import React from 'react';
 
 
-function FeedCard () {
+function FeedCard ({user}) {
 
     return (
         <div>
-            Hello
+            <h1>{user.name}</h1>  
+            <div className="user-artwork">
+            <img src={user.artwork.image} alt=""></img>
+            </div>
         </div>
     )
 }

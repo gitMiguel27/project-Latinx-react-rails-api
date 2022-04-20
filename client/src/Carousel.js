@@ -1,4 +1,5 @@
 import React from 'react';
+import { useHistory } from "react-router-dom";
 import { Swiper, SwiperSlide } from '../node_modules/swiper/react/swiper-react';
 // import required modules
 import { Autoplay, Pagination, Navigation } from "swiper";
@@ -13,10 +14,23 @@ import './swipercarousel.css';
 
 function Carousel( {countries} ) {
 
+  // const history = useHistory();
 
-  const countriesImages = countries.map( country => {
+  // function nameClick() {
+  //   console.log('clicked')
+  //   history.push('/artistpage');
+  // }
+
+  const countriesImages = countries.map(country => {
     return (
-      <SwiperSlide><img src={country.image} alt={country.name}></img></SwiperSlide>
+      <SwiperSlide key={country.id}>
+        <div className='slide-container'>
+          <button onClick={() => console.log('clicked')}>
+          <h1>{country.name}</h1>
+          <img className="parallax-bg" src={country.image} alt={country.name}></img>
+          </button>
+        </div>
+      </SwiperSlide>
     )
   })
 
@@ -25,6 +39,7 @@ function Carousel( {countries} ) {
       <Swiper
         spaceBetween={30}
         centeredSlides={true}
+        parallax={true}
         autoplay={{
           delay: 2500,
           disableOnInteraction: false,
