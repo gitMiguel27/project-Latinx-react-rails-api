@@ -4,15 +4,21 @@
 }
 .navbar {
     background-color: #edeaea;
+    display: flex;
+    justify-content: space-between;
 }
+
+.navbar-links {
+    padding-top: 75px;
+}
+
 .navbar-links > * {
     background-color: #edeaea;
     color: black !important;
     text-decoration: none;
-    /* display: inline-block; */
     margin: 0;
     padding: 1em;
-    float: right;
+    font-size: large;
 }
 
 .navlink {
@@ -21,7 +27,7 @@
 }
 
 .logo {
-    height: 10%;
-    width: 10%;
+    height: 150px;
+    width: auto;
     background-color: #edeaea;
 }

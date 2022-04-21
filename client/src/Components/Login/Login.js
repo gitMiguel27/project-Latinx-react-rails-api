@@ -1,65 +1,63 @@
-import React, { useState } from 'react';
-import { Button, Error, Input, FormField, Label } from "../styles";
+import {React, useState} from 'react';
+import { useHistory } from 'react-router-dom';
+import Navbar from '../Navbar/Navbar';
+// import '../Login.css';
+// import { Button, Error, Input, FormField, Label } from "../styles";
 
 function Login( {onLogin} ) {
-    const [username, setUsername] = useState("");
-    const [password, setPassword] = useState("");
-    const [errors, setErrors] = useState([]);
-    const [isLoading, setIsLoading] = useState(false);
-  
-    function handleSubmit(e) {
-      e.preventDefault();
-      setIsLoading(true);
-      fetch("/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ username, password }),
-      }).then((r) => {
-        setIsLoading(false);
-        if (r.ok) {
-          r.json().then((user) => onLogin(user));
-        } else {
-          r.json().then((err) => setErrors(err.errors));
-        }
+  const [username, setUserName] = useState();
+  const [password, setPassword] = useState();
+
+  const history = useHistory();
+  console.log("history: ", history)
+
+  async function loginUser(credentials) {
+    return fetch('http://localhost:3000/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(credentials)
+    })
+      .then(data => data.json())
+      .then(json => {
+          history.push('/home')
+          // setToken(json);
+      })
+      .catch(error => {
+          history.push('/');
+          console.log(error);
       });
-    }
-  
-    return (
-      <form onSubmit={handleSubmit}>
-        <FormField>
-          <Label htmlFor="username">Username</Label>
-          <Input
-            type="text"
-            id="username"
-            autoComplete="off"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-          />
-        </FormField>
-        <FormField>
-          <Label htmlFor="password">Password</Label>
-          <Input
-            type="password"
-            id="password"
-            autoComplete="current-password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </FormField>
-        <FormField>
-          <Button variant="fill" color="primary" type="submit">
-            {isLoading ? "Loading..." : "Login"}
-          </Button>
-        </FormField>
-        <FormField>
-          {errors.map((err) => (
-            <Error key={err}>{err}</Error>
-          ))}
-        </FormField>
-      </form>
-    );
+  }
+
+  const handleSubmit = async e => {
+      e.preventDefault();
+      await loginUser({
+          username,
+          password
+      });
+  }
+
+  return (
+    <div>
+      <Navbar />
+      <div className="login-wrapper">
+        <form onSubmit={handleSubmit}>
+          <label>
+            <p className="litext"><strong>USERNAME</strong></p>
+            <input type= "text" onChange={e => setUserName(e.target.value)}/>
+          </label>
+          <label>
+            <p className="litext"><strong>PASSWORD</strong></p>
+            <input type="password" onChange={e => setPassword(e.target.value)}/>
+          </label>
+          <div>
+            <button type="submit">Login</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  )
 }
 
 export default Login

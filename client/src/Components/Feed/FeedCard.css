@@ -1,0 +1,5 @@
+.user-list{
+    position: flex;
+    padding: 100px;
+    flex-direction: column;
+}

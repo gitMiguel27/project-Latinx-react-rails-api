@@ -4,4 +4,5 @@ class ArtistsController < ApplicationController
         artists = Artist.all
         render json: artists, status: :ok
     end
+
 end

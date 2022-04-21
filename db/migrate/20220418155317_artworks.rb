@@ -5,9 +5,9 @@ class Artworks < ActiveRecord::Migration[6.1]
       t.string :image
       t.string :category
       t.integer :date
-      t.string :current_lcation
-      t.belongs_to :artist, null: false, foreign_key: true
-      t.belongs_to :user, null: false, foreign_key: true
+      t.string :current_location
+      t.belongs_to :artist, null: true, foreign_key: true, optional: true
+      t.belongs_to :user, null: true, foreign_key: true, optional: true
 
       t.timestamps
     end

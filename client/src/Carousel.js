@@ -1,6 +1,8 @@
 import React from 'react';
-import { useHistory } from "react-router-dom";
+import CarouselCard from './CarouselCard';
+// import { useHistory } from "react-router-dom";
 import { Swiper, SwiperSlide } from '../node_modules/swiper/react/swiper-react';
+// import { Swiper, SwiperSlide } from 'swiper/react';
 // import required modules
 import { Autoplay, Pagination, Navigation } from "swiper";
 // Import Swiper styles
@@ -21,25 +23,12 @@ function Carousel( {countries} ) {
   //   history.push('/artistpage');
   // }
 
-  const countriesImages = countries.map(country => {
-    return (
-      <SwiperSlide key={country.id}>
-        <div className='slide-container'>
-          <button onClick={() => console.log('clicked')}>
-          <h1>{country.name}</h1>
-          <img className="parallax-bg" src={country.image} alt={country.name}></img>
-          </button>
-        </div>
-      </SwiperSlide>
-    )
-  })
-
   return (
     <>
       <Swiper
         spaceBetween={30}
         centeredSlides={true}
-        parallax={true}
+        // parallax={true}
         autoplay={{
           delay: 2500,
           disableOnInteraction: false,
@@ -50,13 +39,18 @@ function Carousel( {countries} ) {
         navigation={true}
         modules={[Autoplay, Pagination, Navigation]}
         className="mySwiper"
-      >
-        {countriesImages}
+        >
+        {countries.map((country) => {
+          return (
+            <SwiperSlide key={country.id}>
+              <CarouselCard key={country.id} country={country}/>
+            </SwiperSlide>
+          )
+        })
+        }
       </Swiper>
     </>
-  
-)}
-
-
+  )
+}
 
 export default Carousel

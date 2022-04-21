@@ -35,9 +35,9 @@ ActiveRecord::Schema.define(version: 2022_04_18_155317) do
     t.string "image"
     t.string "category"
     t.integer "date"
-    t.string "current_lcation"
-    t.bigint "artist_id", null: false
-    t.bigint "user_id", null: false
+    t.string "current_location"
+    t.bigint "artist_id"
+    t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["artist_id"], name: "index_artworks_on_artist_id"
@@ -54,7 +54,8 @@ ActiveRecord::Schema.define(version: 2022_04_18_155317) do
 
   create_table "users", force: :cascade do |t|
     t.string "name"
-    t.string "country_of_origin"
+    t.string "username"
+    t.string "password_digest"
     t.string "nationality"
     t.integer "age"
     t.string "life_mission"

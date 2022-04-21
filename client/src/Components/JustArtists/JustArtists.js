@@ -1,4 +1,7 @@
 import React, { useEffect, useState } from 'react';
+import {Switch, Route } from "react-router-dom"
+import Navbar from '../Navbar/Navbar';
+import './JustArtists.css'
 
 function JustArtists() {
     const [names, setNames] = useState([]);
@@ -12,17 +15,34 @@ function JustArtists() {
         })
     }, []); 
 
-    const allNames = names.map(name => {
-        return <li key={name.name}>{name.name}</li>
-    })
-    
+    // const allNames = names.map(name => {
+    //     return (
+    //     <div className="artist-container">
+    //     <div className="artist">
+    //         <li><a href={name.name} >{name.name}</a></li>
+    //     </div>
+    //     </div>
+    //     )})
+
+    const allNames = ({match}) => {
+        const allnames = names.find((name) => {
+            return parseInt(match.params.nameId) === name.id
+        })
+    }
+        
     return (
-        <div>
-            Hello from Just Artist
-            <ol>
-                {allNames}
-            </ol>
-        </div>
+        <>
+            <Navbar />
+            <div>
+                Hello from Just Artist
+                {/* <ol className="artist-list">
+                    {allNames}
+                </ol> */}
+                <Switch>
+                    <Route path={':nameId'} component={artistCard} />
+                <Switch/>
+            </div>
+        </>
     )
 }
 

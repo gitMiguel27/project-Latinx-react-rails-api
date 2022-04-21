@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :artworks, only: [:index, :show]
+
   get '/countries', to: "countries#index"
   get '/artists', to: "artists#index"
   get '/users', to: "users#index"

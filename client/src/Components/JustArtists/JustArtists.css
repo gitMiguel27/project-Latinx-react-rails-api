@@ -1,0 +1,16 @@
+.artist {
+    /* position: flex;
+    padding: 0;
+    flex-direction: column;
+    column-count: 10; */
+}
+
+.artist-container{
+   column-count: 10;  
+}
+
+.artist-list{
+    display: grid;
+    grid-template-columns: repeat(2, .10fr);
+
+}

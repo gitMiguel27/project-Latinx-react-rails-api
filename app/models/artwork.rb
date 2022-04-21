@@ -1,5 +1,4 @@
 class Artwork < ApplicationRecord
   belongs_to :artist
-  belongs_to :country
-  belongs_to :user
+  belongs_to :user, optional: true
 end
