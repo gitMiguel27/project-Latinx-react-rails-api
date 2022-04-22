@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import Navbar from '../Navbar/Navbar';
-// import FeedCard from './FeedCard'
-import "./Feed.css"
-import { Swiper, SwiperSlide } from 'swiper/react/swiper-react.js';
+// // import FeedCard from './FeedCard'
+// import "./Feed.css"
+// import { Swiper, SwiperSlide } from 'swiper/react/swiper-react.js';
 
-// Import Swiper styles
-import 'swiper/swiper-bundle.css'
-import "swiper/swiper.min.css";
+// // Import Swiper styles
+// import 'swiper/swiper-bundle.css'
+// import "swiper/swiper.min.css";
 
-// import required modules
-import { Pagination } from "swiper";
+// // import required modules
+// import { Pagination } from "swiper";
 
 function Feed() {
 

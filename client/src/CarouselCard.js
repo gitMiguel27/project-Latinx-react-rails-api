@@ -2,12 +2,12 @@ import React from 'react'
 
 
 
-function CarouselCard ({country}) {
+function CarouselCard ({art}) {
 
     return (
         <div className='slide-container'>
-          <h1>{country.name}</h1>
-          <img className="parallax-bg" src={country.image} alt={country.name}></img>
+          <h1>{art.name}</h1>
+          <img className="parallax-bg" src={art.image} alt={art.name}></img>
         </div>
     )
 }

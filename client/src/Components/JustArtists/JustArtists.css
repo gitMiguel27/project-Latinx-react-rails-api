@@ -6,11 +6,12 @@
 }
 
 .artist-container{
-   column-count: 10;  
+ display:flex; 
+ padding: 20px;
 }
 
 .artist-list{
     display: grid;
-    grid-template-columns: repeat(2, .10fr);
+    grid-template-columns: auto auto auto auto;
 
 }

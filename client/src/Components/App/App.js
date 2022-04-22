@@ -6,6 +6,11 @@ import Feed from '../Feed/Feed';
 import Login from '../Login/Login'
 import Signup from '../Signup/Signup';
 import JustArtists from '../JustArtists/JustArtists';
+import MyPage from "../MyPage/MyPage";
+import Brazil from "../Brazil/Brazil"
+import Colombia from "../Colombia/Colombia"
+import Peru from "../Peru/Peru"
+import Mexico from "../Mexico/Mexico"
 
 function App() {
   const [user, setUser] = useState(null);
@@ -37,11 +42,28 @@ function App() {
             <Route path="/explore">
               <Feed />
             </Route>
+            <Route path="/mypage">
+              <MyPage/>
+            </Route>
             <Route path="/login">
               <Login />
             </Route>
+<<<<<<< HEAD
             <Route path="/signup">
               <Signup />
+=======
+            <Route path="/brazil">
+              <Brazil/>
+            </Route>
+            <Route path="/colombia">
+              <Colombia/>
+            </Route>
+            <Route path="/mexico">
+              <Mexico/>
+            </Route>
+            <Route path="/peru">
+              <Peru/>
+>>>>>>> 8e654e5c1c0c998fd4312b2178d6677c2e2ec9b8
             </Route>
         </Switch>
       </BrowserRouter>

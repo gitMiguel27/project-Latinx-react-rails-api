@@ -4,7 +4,7 @@ import React, {useState} from 'react';
 import { withRouter } from 'react-router-dom';
 
 // styling
-import './Menu.css';
+import './DropDownMenu.css';
 
 const DropDownMenu = props => {
     // conditionally render dropdown affect based on this boolean
@@ -25,22 +25,22 @@ const DropDownMenu = props => {
     }
 
     return (
-        <div className="Menu">
-            <div className={"m-item m-logo"}
-                onClick={() => setOpenMenu(!openMenu)}>
-                Menu
-            </div>
+        <div className="Country-link-container ">
             <div className={setClassNames(1)}
-                onClick={() => pushToRoute("/dashboard")}>
-                Dashboard
+                onClick={() => pushToRoute("/Mexico")}>
+                Mexico
             </div>
             <div className={setClassNames(2)}
-                onClick={() => pushToRoute("/settings")}>
-                Settings
+                onClick={() => pushToRoute("/Peru")}>
+                Peru
             </div>
             <div className={setClassNames(3)}
-                onClick={() => pushToRoute("/")}>
-                Sign out
+                onClick={() => pushToRoute("/Colombia")}>
+                Colombia
+            </div>
+            <div className={setClassNames(3)}
+                onClick={() => pushToRoute("/Brazil")}>
+                Brazil
             </div>
         </div>
   );

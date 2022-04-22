@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   get '/countries', to: "countries#index"
   get '/artists', to: "artists#index"
+  get '/artists/:id', to: "artists#show"
   get '/users', to: "users#index"
   post "/signup", to: "users#create"
   get "/me", to: "users#show"
