@@ -13,6 +13,7 @@ function Navbar(){
                 <NavLink to="/home">Home</NavLink>
                 <NavLink to="/artists">Artists</NavLink>
                 <NavLink to="/explore">Explore</NavLink>
+                <NavLink to="/mypage">MyPage</NavLink>
                 <NavLink to="/login">Login</NavLink>
                 </div>
             {/* </div> */}

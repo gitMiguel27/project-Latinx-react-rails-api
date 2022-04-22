@@ -14,7 +14,7 @@ import "swiper/swiper.min.css";
 // Import Swiper styles
 import './swipercarousel.css';
 
-function Carousel( {countries} ) {
+function Carousel( {artworks} ) {
 
   // const history = useHistory();
 
@@ -30,7 +30,7 @@ function Carousel( {countries} ) {
         centeredSlides={true}
         // parallax={true}
         autoplay={{
-          delay: 2500,
+          delay: 5000,
           disableOnInteraction: false,
         }}
         pagination={{
@@ -40,10 +40,10 @@ function Carousel( {countries} ) {
         modules={[Autoplay, Pagination, Navigation]}
         className="mySwiper"
         >
-        {countries.map((country) => {
+        {artworks.map((art) => {
           return (
-            <SwiperSlide key={country.id}>
-              <CarouselCard key={country.id} country={country}/>
+            <SwiperSlide key={art.id}>
+              <CarouselCard key={art.id} art={art}/>
             </SwiperSlide>
           )
         })
