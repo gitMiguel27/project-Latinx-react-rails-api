@@ -1,0 +1,8 @@
+.account-form-container {
+    text-align: center;
+    background-image: url('../../logo.png');
+    background-repeat: no-repeat;
+    background-position: 50%;
+    width: auto;
+    height: 750px;
+}

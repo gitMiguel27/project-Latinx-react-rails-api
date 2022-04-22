@@ -11,7 +11,7 @@ function Home () {
         fetch('/countries')
         .then(resp => resp.json())
         .then(countriesData => {
-            console.log(countriesData)
+            // console.log(countriesData)
             setCountries(countriesData);
         })
     }, []);

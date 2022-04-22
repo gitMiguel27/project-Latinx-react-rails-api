@@ -35,8 +35,6 @@ function Feed() {
     }, [])
 
 
-
-
     // const sortedFeed = usersFeed.map((user) => {
     //     return <FeedCard key={user.id} user={user}/> 
     // })

@@ -1,63 +1,95 @@
-import {React, useState} from 'react';
-import { useHistory } from 'react-router-dom';
+import { React, useState, useHistory } from 'react';
+// import { useHistory } from 'react-router-dom';
 import Navbar from '../Navbar/Navbar';
-// import '../Login.css';
-// import { Button, Error, Input, FormField, Label } from "../styles";
+import Error from './Error';
+import './Login.css';
 
-function Login( {onLogin} ) {
-  const [username, setUserName] = useState();
-  const [password, setPassword] = useState();
-
+function Login({ onLogin }) {
   const history = useHistory();
-  console.log("history: ", history)
 
-  async function loginUser(credentials) {
-    return fetch('http://localhost:3000/login', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(credentials)
+  const [errors, setErrors] = useState([]);
+  const [formData, setFormData] = useState ({
+      username: "",
+      password: ""
+  });
+
+  function handleChange(event) {
+    setFormData({
+      ...formData,
+      [event.target.name]: event.target.value,
     })
-      .then(data => data.json())
-      .then(json => {
-          history.push('/home')
-          // setToken(json);
-      })
-      .catch(error => {
-          history.push('/');
-          console.log(error);
-      });
   }
 
-  const handleSubmit = async e => {
-      e.preventDefault();
-      await loginUser({
-          username,
-          password
-      });
+  function handleSubmit(e) {
+    e.preventDefault();
+    fetch("/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ 
+        username: formData.username,
+        password: formData.password
+      }),
+    }).then((resp) => {
+      if (resp.ok) {
+        resp.json().then((user) => onLogin(user));
+      } else {
+        resp.json().then((err) => setErrors(err.errors));
+      }
+    });
+
+    setFormData({
+      username: "",
+      password: ""
+    })
+  }
+
+  function signupClick() {
+    console.log('clicked')
+    // history.push("/signup")
   }
 
   return (
-    <div>
+    <>
       <Navbar />
-      <div className="login-wrapper">
-        <form onSubmit={handleSubmit}>
+      <div className='form-container'>
+        <h2 id='sign-in-header'> Sign-In </h2>
+        {errors && (
+          <p className="error"> 
+            {errors.map((err) => (
+            <Error key={err}>{err}</Error>
+            ))} 
+          </p>
+        )}
+        <form onSubmit={handleSubmit}> 
           <label>
-            <p className="litext"><strong>USERNAME</strong></p>
-            <input type= "text" onChange={e => setUserName(e.target.value)}/>
+            Username: 
+            <input
+              name='username'
+              type="text"
+              placeholder="username..."
+              value={formData.username}
+              onChange={handleChange}
+            />
           </label>
           <label>
-            <p className="litext"><strong>PASSWORD</strong></p>
-            <input type="password" onChange={e => setPassword(e.target.value)}/>
+            Password: 
+            <input
+              name='password'
+              type="text"
+              placeholder="password..."
+              value={formData.password}
+              onChange={handleChange}
+            />
           </label>
-          <div>
-            <button type="submit">Login</button>
-          </div>
+          <input className='submit' type="submit" value="Submit" />
         </form>
+        <p id='sign-up' onClick={signupClick}>or sign-up </p>
       </div>
-    </div>
-  )
+    </>
+  );
+
 }
 
-export default Login
+export default Login;

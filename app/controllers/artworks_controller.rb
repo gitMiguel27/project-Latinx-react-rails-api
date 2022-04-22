@@ -1,5 +1,6 @@
 class ArtworksController < ApplicationController
-
+    skip_before_action :authorize
+    
     def index
         artworks = Artwork.all
         render json: artworks, status: :ok 

@@ -39,8 +39,8 @@ function JustArtists() {
                     {allNames}
                 </ol> */}
                 <Switch>
-                    <Route path={':nameId'} component={artistCard} />
-                <Switch/>
+                    <Route path={':nameId'} />
+                </Switch>
             </div>
         </>
     )

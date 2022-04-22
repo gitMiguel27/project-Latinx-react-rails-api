@@ -31,7 +31,7 @@ a20 = Artist.create( name:'Alfredo Volpi', pic: 'https://prabook.com/web/show-ph
 
 puts '🌱 Seeding Users...'
 
-miguel = User.create(name: 'Naomi Sotomayor', username: 'abc', password_digest: '123', nationality: 'Peruvian', age: 23, life_mission: 'to represent queer latinx artists', country_id: peru.id )
+naomi = User.create(name: 'Naomi Sotomayor', username: 'naomi123', password_digest: 'abc123', nationality: 'Peruvian', age: 23, life_mission: 'to represent queer latinx artists', country_id: peru.id )
 
 puts '🌱 Seeding Artworks...'
 
