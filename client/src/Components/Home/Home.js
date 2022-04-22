@@ -28,15 +28,12 @@ function Home () {
     useEffect(() => {
         fetch('/artworks')
         .then(resp => resp.json())
-<<<<<<< HEAD
-        .then(countriesData => {
-            // console.log(countriesData)
-            setCountries(countriesData);
-=======
+        // .then(countriesData => {
+        //     // console.log(countriesData)
+        //     setCountries(countriesData);
         .then( artworks => {
             console.log(artworks)
             setArtworks(artworks)
->>>>>>> 8e654e5c1c0c998fd4312b2178d6677c2e2ec9b8
         })
     }, [])
 
@@ -54,4 +51,4 @@ function Home () {
     )
 }
 
-export default Home
+export default Home;

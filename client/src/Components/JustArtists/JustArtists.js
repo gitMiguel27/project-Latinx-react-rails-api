@@ -36,17 +36,10 @@ function JustArtists() {
             <div>
                 <ul className="artist-list">
                     {allNames}
-<<<<<<< HEAD
-                </ol> */}
-                <Switch>
-                    <Route path={':nameId'} />
-                </Switch>
-=======
                 </ul>
                 {/* <Switch>
                     <Route path={':nameId'} component={artistCard} />
                 <Switch/> */}
->>>>>>> 8e654e5c1c0c998fd4312b2178d6677c2e2ec9b8
             </div>
         </>
     )

@@ -7,7 +7,8 @@ class UsersController < ApplicationController
     end
 
     def create
-        user = User.create!(user_params)
+        country = Country.find_by(name: params[:country])
+        user = User.create!(name: params[:name], username: params[:username], password: params[:password], nationality: params[:nationality], age: params[:age], life_mission: params[:life_mission], country_id: country.id)
         session[:user_id] = user.id
         render json: user, status: :created
       end
@@ -16,10 +17,10 @@ class UsersController < ApplicationController
         render json: @current_user
       end
     
-      private
+      # private
     
-      def user_params
-        params.permit(:name, :username, :password, :nationality, :age, :life_mission)
-      end
+      # def user_params
+      #   params.permit(:name, :username, :password, :nationality, :age, :life_mission)
+      # end
     
 end

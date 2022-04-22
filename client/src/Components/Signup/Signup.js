@@ -1,15 +1,21 @@
 import React, { useState } from "react";
+import { useHistory } from 'react-router-dom';
 import Navbar from "../Navbar/Navbar";
+import Error from "../Login/Error";
+
 import "./Signup.css"
 
-function Signup() {
+function Signup({ setUser }) {
+    const history = useHistory();
+    const [errors, setErrors] = useState([]);
     const [formData, setFormData] = useState ({
         name: "",
         username: "",
         password: "",
         nationality: "",
         age: "",
-        life_mission: ""
+        life_mission: "",
+        country: ""
     });
   
     function handleChange(event) {
@@ -33,8 +39,15 @@ function Signup() {
             password: formData.password,
             nationality: formData.nationality,
             age: formData.age,
-            life_mission: formData.life_mission
+            life_mission: formData.life_mission,
+            country: formData.country
           }),
+        }).then((resp) => {
+            if (resp.ok) {
+              resp.json().then((user) => setUser(user));
+            } else {
+              resp.json().then((err) => setErrors(err.errors));
+            }
         });
         //   :name, :username, :password, :nationality, :age, :life_mission ^^^
     
@@ -44,8 +57,15 @@ function Signup() {
             password: "",
             nationality: "",
             age: "",
-            life_mission: ""
+            life_mission: "",
+            country: ""
         });
+
+        if (errors === []) {
+            history.push("/mypage")
+        }
+
+        setErrors([]);
     }
 
 
@@ -54,6 +74,13 @@ function Signup() {
             <Navbar />
             <div className='account-form-container'>
                 <h2> Create An Account </h2>
+                {errors && (
+                    <p className="error"> 
+                    {errors.map((err) => (
+                    <Error key={err}>{err}</Error>
+                    ))} 
+                    </p>
+                )}
                 <form onSubmit={handleSubmit}> 
                     <label>
                     Full Name: 
@@ -112,6 +139,16 @@ function Signup() {
                         type="text"
                         placeholder="my life mission is..."
                         value={formData.life_mission}
+                        onChange={handleChange}
+                    />
+                    </label>
+                    <label>
+                    Country: 
+                    <input
+                        name='country'
+                        type="text"
+                        placeholder="Country..."
+                        value={formData.country}
                         onChange={handleChange}
                     />
                     </label>

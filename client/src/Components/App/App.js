@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import Home from '../Home/Home';
 import Feed from '../Feed/Feed';
 import Login from '../Login/Login'
@@ -24,11 +24,10 @@ function App() {
     });
   }, []);
 
-  // if (!user) return <Login onLogin={setUser} />
+  if (!user) return <Login setUser={setUser} />
 
   return (
     <div className="App">
-      <BrowserRouter>
         <Switch>
             <Route exact path="/">
               <Home />
@@ -46,12 +45,11 @@ function App() {
               <MyPage/>
             </Route>
             <Route path="/login">
-              <Login />
+              <Login setUser={setUser}/>
             </Route>
-<<<<<<< HEAD
             <Route path="/signup">
-              <Signup />
-=======
+              <Signup setUser={setUser}/>
+              </Route>
             <Route path="/brazil">
               <Brazil/>
             </Route>
@@ -63,10 +61,8 @@ function App() {
             </Route>
             <Route path="/peru">
               <Peru/>
->>>>>>> 8e654e5c1c0c998fd4312b2178d6677c2e2ec9b8
             </Route>
         </Switch>
-      </BrowserRouter>
     </div>
   );
 }

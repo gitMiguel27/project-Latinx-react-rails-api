@@ -1,10 +1,10 @@
-import { React, useState, useHistory } from 'react';
-// import { useHistory } from 'react-router-dom';
+import { React, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import Navbar from '../Navbar/Navbar';
 import Error from './Error';
 import './Login.css';
 
-function Login({ onLogin }) {
+function Login({ setUser }) {
   const history = useHistory();
 
   const [errors, setErrors] = useState([]);
@@ -33,7 +33,7 @@ function Login({ onLogin }) {
       }),
     }).then((resp) => {
       if (resp.ok) {
-        resp.json().then((user) => onLogin(user));
+        resp.json().then((user) => setUser(user));
       } else {
         resp.json().then((err) => setErrors(err.errors));
       }
@@ -47,7 +47,7 @@ function Login({ onLogin }) {
 
   function signupClick() {
     console.log('clicked')
-    // history.push("/signup")
+    history.push("/signup")
   }
 
   return (

@@ -24,7 +24,6 @@ function ArtistPage() {
 
     return(
         <div>
-            Hello from ArtistPage
             {loadArtist}
         </div>
     )
